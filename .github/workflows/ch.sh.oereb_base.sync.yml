@@ -59,7 +59,7 @@ jobs:
           UPSTREAM_URL: $OEREBKRM_CANTON_DOWNLOAD_URL/$OEREBKRM_CANTON_FILE_NAME
         run: |
           git add $OEREBKRM_CANTON_FILE_NAME
-          ./scripts/ch.sh.base.sync.commit-push_if_dirty.sh
+          ./scripts/ch.sh.oereb_base.sync.commit-push_if_dirty.sh
 
       - name: Download and unzip AV
         run: |
@@ -67,7 +67,7 @@ jobs:
           ls -ls /tmp/$AV_FILE_NAME
           unzip -o /tmp/$AV_FILE_NAME '*.itf' -d ./
           git add $(find ./ -iname '*.itf')
-          ./scripts/ch.sh.base.sync.commit-push_if_dirty.sh
+          ./scripts/ch.sh.oereb_base.sync.commit-push_if_dirty.sh
 
       - name: Draft daily release
         env:

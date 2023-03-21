@@ -65,10 +65,10 @@ jobs:
           done
       - name: Insert cantonal configuration catalogues
         run: |
-          ./scripts/ch.sh.base.build.insert.OeREBKRM_V2_0.sh
+          ./scripts/ch.sh.oereb_base.build.insert.OeREBKRM_V2_0.sh
       - name: Insert cantonal AV
         run: |
-          ./scripts/ch.sh.base.build.insert.av.sh
+          ./scripts/ch.sh.oereb_base.build.insert.av.sh
 
       - name: Shut down DB container
         run: |
