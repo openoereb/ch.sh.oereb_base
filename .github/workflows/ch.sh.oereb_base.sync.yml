@@ -62,6 +62,8 @@ jobs:
           ./scripts/ch.sh.oereb_base.sync.commit-push_if_dirty.sh
 
       - name: Download and unzip AV
+        env:
+          UPSTREAM_URL: $AV_DOWNLOAD_URL/$AV_FILE_NAME
         run: |
           curl -X GET -o /tmp/$AV_FILE_NAME $AV_DOWNLOAD_URL/$AV_FILE_NAME
           ls -ls /tmp/$AV_FILE_NAME

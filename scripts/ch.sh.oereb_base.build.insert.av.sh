@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ili2pg_executable=$(find /ili2pg -iname 'ili2pg*.jar')
+ili2pg_executable=$(find /tmp/ili2pg -iname 'ili2pg*.jar')
 model="DM01AVCH24LV95D"
 topics="DM01AVCH24LV95D.Liegenschaften;DM01AVCH24LV95D.Gemeindegrenzen;DM01AVCH24LV95D.Gebaeudeadressen"
 
-for f in /data/*.itf; do
+for f in ./*.itf; do
   java -jar "$ili2pg_executable" \
     --import \
     --dbdatabase "$POSTGRES_DB" \
