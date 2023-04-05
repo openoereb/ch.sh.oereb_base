@@ -78,4 +78,4 @@ jobs:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           TAG=$(date +'%Y%m%d.%H%M.%S')-$(git rev-parse --short master)
-          if [ $(cat /tmp/release) == "1" ] || [ "${{ inputs.force_build }}" == "1" ] || [ "${{ github.event.event_type }}" == "base_image_was_updated" ]; then echo "draft release" && gh release create $TAG; else echo "no release draft"; fi
+          if [ $(cat /tmp/release) == "1" ] || [ "${{ inputs.force_build }}" == "1" ] || [ "${{ github.event.client_payload.build }}" == "true" ]; then echo "draft release" && gh release create $TAG; else echo "no release draft"; fi
