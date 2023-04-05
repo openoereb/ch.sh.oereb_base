@@ -82,3 +82,10 @@ jobs:
         run: |
           docker push ghcr.io/${{ github.repository }}:latest
           docker push ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+      - name: Acknowledge parent repository about new base image
+        run: |
+          curl -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: token ${{ secrets.PERSONAL_TOKEN }}" \
+          --request POST \
+          --data '{"event_type": "base_image_was_updated", "client_payload": {}}' \
+          https://api.github.com/repos/opengisch/sh.oereb.oereb-server.database/dispatches
